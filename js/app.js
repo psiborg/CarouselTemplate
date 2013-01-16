@@ -75,17 +75,6 @@ app.getRSS = function (url, targetId, scrollerId) {
     });
 };
 
-/*
-    'symbol',
-    'last_trade',
-    'update_date',
-    'update_time',
-    'change',
-    'prev_close',
-    'day_high',
-    'day_low',
-    'volume'
- */
 app.getStocks = function (url, targetId, titleText) {
     console.info('getStocks:', url, targetId, titleText);
 
