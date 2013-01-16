@@ -1,0 +1,373 @@
+/* ===========================================================================
+ * app.css
+ *
+ * Jim Ing (@jim_ing)
+ * ===========================================================================
+ *
+ * Copyright 2012-2013 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+    background-color: #FFF;
+    visibility: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 125%;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: none;
+}
+
+h1 {
+    display: inline;
+    font-size: 125%;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+section {
+    display: block;
+}
+
+figure {
+    margin: 0;
+}
+
+a {
+    color: #262626;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #0098F0;
+    color: white;
+}
+
+strong {
+    color: #96B800;
+    color: #A30D7E;
+}
+
+/* Carousels */
+
+.container {
+    position: absolute;
+    background-color: #6C6666;
+    border-radius: 5px;
+    -webkit-perspective: 1100px;
+    -moz-perspective: 1100px;
+    -o-perspective: 1100px;
+    perspective: 1100px;
+}
+
+#container0 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+}
+
+#container1 {
+    top: 11%;
+    left: 0;
+    width: 60%;
+    height: 63%;
+}
+
+#container2 {
+    top: 75%;
+    left: 0;
+    width: 60%;
+    height: 25%;
+}
+
+#container3 {
+    top: 11%;
+    left: 61%;
+    width: 39%;
+    height: 63%;
+}
+
+#container4 {
+    top: 75%;
+    left: 61%;
+    width: 39%;
+    height: 25%;
+}
+
+.carousel figure {
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 2px #888888;
+    display: block;
+    position: absolute;
+    width: 100%;
+}
+
+#carousel0 figure {
+    background-color: #FBB700;
+    height: 100%;
+}
+
+#carousel1 figure {
+    height: 100%;
+}
+
+#carousel2 figure {
+    height: 100%;
+}
+
+#carousel3 figure {
+    height: 100%;
+}
+
+#carousel4 figure {
+    height: 100%;
+}
+
+.carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.ready .carousel {
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+}
+
+.ready .carousel figure {
+    -webkit-transition: opacity 1s, -webkit-transform 1s;
+    -moz-transition: opacity 1s, -moz-transform 1s;
+    -o-transition: opacity 1s, -o-transform 1s;
+    transition: opacity 1s, transform 1s;
+}
+
+.carousel.panels-backface-invisible figure {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Scrollers */
+
+.standard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.scroller {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /*-webkit-touch-callout: none;*/
+}
+
+.scroller ul {
+    list-style: none;
+    margin: 2%;
+    padding: 0;
+    text-align: left;
+    width: 96%;
+}
+
+.scroller li {
+    border-radius: 5px;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #CCC;
+    background-color: #FAFAFA;
+    font-size: 125%;
+}
+
+/* Other */
+
+.headingContainer {
+    border-top: 5px solid #0098F0;
+    color: #FFF;
+    display: inline-table;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/logo.png), url(../img/wireframe_mono/white/up_down.png);
+    background-position: left top, right center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+    text-align: center;
+}
+
+.heading {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 70%;
+    height: 80%;
+    line-height: 12mm;
+    padding: 5px;
+}
+
+.heading a {
+    color: #FFF;
+    font-size: 12mm;
+    font-weight: bold;
+}
+
+.heading a:hover {
+    background-color: transparent;
+    color: #0098F0;
+}
+
+.panelTitle {
+    background-color: #262626;
+    color: #FFF;
+    border-radius: 5px 5px 0 0;
+    font-size: 125%;
+    text-align: center;
+    height: 12%;
+    line-height: 15mm;
+}
+
+.panelMaximize {
+    background-image: url(../img/bb10/ic_open.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: contain; /* auto */
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30mm;
+    height: auto;
+}
+
+#mainWindow {
+    height: 100%;
+}
+
+.intro {
+    color: #FFF;
+    font-family: "Times New Roman", serif;
+    font-size: 125%;
+    font-style: italic;
+    border-radius: 0 0 5px 5px;
+    display: inline-table;
+    width: 100%;
+    height: 88%;
+    padding: 40px;
+    background-image: url(../img/bb10_teaser.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.newsDate {
+    color: #A30D7E;
+    font-size: 70%;
+}
+
+.chart {
+    border-radius: 5px;
+    margin: 0;
+    padding: 1%;
+    width: 96%;
+}
+
+#map {
+    width: 100%;
+    height: 88%;
+}
+
+#videoWindow {
+    height: 100%;
+}
+
+.videoClip {
+    margin-left: 2%;
+    width: 96%;
+    height: 88%;
+}
+
+.iframeContainer {
+    width: 100%;
+    height: 88%;
+}
+
+.iframeClip {
+    width: 100%;
+    height: 100%;
+}
+
+.button {
+    background-color: #00A2DE;
+    border: 1px solid #CCC;
+    border-radius: 10px;
+    padding: 5px 15px 5px 15px;
+}
+
+.screenshot {
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+
+.ticker {
+    height: 80%;
+    float: left;
+}
+
+#tweetList {
+    padding: 5px;
+}
+
+#debug {
+    padding: 5px;
+    font: normal 10px Arial, sans-serif;
+}
+
+/* BB10 */
+
+@media (min-height: 601px) and (max-height: 768px) {
+    body {
+        font-size: 160%;
+    }
+
+    .intro {
+        font-size: 32px;
+    }
+
+    #debug {
+        font-size: 18px;
+    }
+}

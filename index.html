@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2012-2013 Research In Motion Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Carousel Template</title>
+    <link rel="stylesheet" href="lib/leaflet-0.4.5/leaflet.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <section id="container0" class="container">
+        <div id="carousel0" class="carousel">
+            <figure>
+                <div class="headingContainer">
+                    <div class="heading"><h1 id="heading"><a href="#" data-url="https://github.com/emamob" onclick="app.updateIframe(event, 'content', '1', 'main', 'sapcfo.com');">Carousel Template</a></h1></div>
+                </div>
+            </figure>
+            <figure>
+                <div class="headingContainer">
+                    <div class="heading">
+                        <img src="samples/screenshots/ticker_n225.png" class="ticker" onclick="app.updateStock(event, 'content', '1', 'main', '^N225');">
+                        <img src="samples/screenshots/ticker_dax.png" class="ticker" onclick="app.updateStock(event, 'content', '1', 'main', '^GDAXI');">
+                        <img src="samples/screenshots/ticker_cac.png" class="ticker" onclick="app.updateStock(event, 'content', '1', 'main', '^FCHI');">
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div class="headingContainer">
+                    <div class="heading">3</div>
+                </div>
+            </figure>
+            <figure>
+                <div class="headingContainer">
+                    <div class="heading">4</div>
+                </div>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Content Carousel -->
+    <section id="container1" class="container">
+        <div id="carousel1" class="carousel">
+            <figure>
+                <div class="panelTitle">&#x25C4; <span id="mainTitle">Main</span> &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '0', 'content');">&nbsp;</span></div>
+                <div id="mainWindow">
+                    <div class="intro">
+                        <div>&ldquo;The BlackBerry Experience<br>Re-designed. Re-engineered. Re-invented.&rdquo;</div>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C1S2" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; <span id="chartTitle">Chart View</span> &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '1', 'content');">&nbsp;</span></div>
+                        <div class="chart" id="chartWindow">Select a chart from the Chart List on the right.</div>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div class="panelTitle">&#x25C4; <span id="mapTitle">Map View</span> &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '2', 'content');">&nbsp;</span></div>
+                <div id="map">Loading...</div>
+            </figure>
+            <figure>
+                <div class="panelTitle">&#x25C4; <span id="videoTitle">Video View</span> &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '3', 'content');">&nbsp;</span></div>
+                <div id="videoWindow">
+                    <video id="video" class="videoClip" controls="controls">
+                    </video>
+                </div>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Scores Carousel -->
+    <section id="container2" class="container">
+        <div id="carousel2" class="carousel">
+            <figure>
+                <div id="C2S1" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; NHL &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '0', 'scores');">&nbsp;</span></div>
+                        <ul id="scores_nhl">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C2S2" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; NBA &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '1', 'scores');">&nbsp;</span></div>
+                        <ul id="scores_nba">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C2S3" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; MLB &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '2', 'scores');">&nbsp;</span></div>
+                        <ul id="scores_mlb">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C2S4" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; NFL &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '3', 'scores');">&nbsp;</span></div>
+                        <ul id="scores_nfl">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Navigation Carousel -->
+    <section id="container3" class="container">
+        <div id="carousel3" class="carousel">
+            <figure>
+                <div id="C3S1" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; Photo List &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '0', 'navigation');">&nbsp;</span></div>
+                        <div id="navigation">
+                            <ul id="navList" onclick="app.updateContent(event, 'content', '2', 'chart', 'content_chart');">
+                                <li><a href="#" data-url="samples/photos/02141_auroraborealis_800x480.jpg">Aurora Borealis</a></li>
+                                <li><a href="#" data-url="samples/photos/02207_venividivenice_800x480.jpg">Veni Vidi Venice</a></li>
+                                <li><a href="#" data-url="samples/photos/02153_maldiviannight_800x480.jpg">Maldivian Night</a></li>
+                                <li><a href="#" data-url="samples/photos/02143_sonicboom_800x480.jpg">Sonic Boom!</a></li>
+                                <li><a href="#" data-url="samples/photos/02348_caltonhilledinburgh_800x480.jpg">Calton Hill, Edinburgh</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C3S2" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; Chart List &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '1', 'navigation');">&nbsp;</span></div>
+                        <ul id="chartList" onclick="app.updateChart(event, 'content', '2', 'chart', 'content_chart');">
+                            <li><a href="#" data-charttype="line">Average Temperature</a></li>
+                            <li><a href="#" data-charttype="area">World Population Growth</a></li>
+                            <li><a href="#" data-charttype="bar">Population Pyramid</a></li>
+                            <li><a href="#" data-charttype="pie">Browser Market Share</a></li>
+                            <li><a href="#" data-charttype="combo">Monthly Temperature and Rainfall</a></li>
+<!--
+                            <li><a href="#" data-charttype="live">Live Random Data</a></li>
+                            <li><a href="#" data-charttype="gauge">Speedometer</a></li>
+-->
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C3S3" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; Map List &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '2', 'navigation');">&nbsp;</span></div>
+                        <ul id="mapList" onclick="app.updateMap(event, 'content', 3);">
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C3S4" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; Video List &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '3', 'navigation');">&nbsp;</span></div>
+                        <ul id="videoList" onclick="app.updateVideo(event, 'content', '4', 'video');">
+                            <li><strong>Offline</strong></li>
+                            <li><a href="#" data-type="video" data-url="samples/big_buck_bunny.m4v">Big Buck Bunny Trailer (0:33)</a></li>
+                            <li><strong>YouTube</strong></li>
+                            <li><a href="#" data-type="iframe" data-url="http://www.youtube.com/embed/KDEmtWLwMOM?rel=0">Stunning Footage from Space (5:01)</a></li>
+                            <li><strong>Vimeo</strong></li>
+                            <li><a href="#" data-type="iframe" data-url="http://player.vimeo.com/video/21294655?title=0&amp;byline=0&amp;portrait=0">The Aurora (1:55)</a></li>
+                            <li><strong>SlideShare</strong></li>
+                            <li><a href="#" data-type="iframe" data-url="http://www.slideshare.net/slideshow/embed_code/5903686">Aurora Borealis (20 slides)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Communication Carousel -->
+    <section id="container4" class="container">
+        <div id="carousel4" class="carousel">
+            <figure>
+                <div id="C4S1" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; News &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '0', 'communication');">&nbsp;</span></div>
+                        <ul id="newsList" onclick="app.updateIframe(event, 'content', '1', 'main', 'News');">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C4S2" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; Tweets &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '1', 'communication');">&nbsp;</span></div>
+                        <ul id="tweetList">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C4S3" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; BBM &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '2', 'communication');">&nbsp;</span></div>
+                        <ul id="bbm">
+                            <li>None</li>
+                        </ul>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div id="C4S4" class="standard">
+                    <div class="scroller">
+                        <div class="panelTitle">&#x25C4; Debug &#x25BA; <span class="panelMaximize" onclick="app.maximize(event, '3', 'communication');">&nbsp;</span></div>
+                        <div id="debug"></div>
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </section>
+    </section>
+
+    <script src="local:///chrome/webworks.js"></script>
+
+    <script src="lib/jquery-1.7.2.min.js"></script>
+    <script src="lib/jqXMLUtils.js"></script>
+    <script src="lib/modernizr-2.6.2-custom.min.js"></script>
+    <script src="lib/hammer-0.6.4/hammer.js"></script>
+    <script src="lib/iscroll-4.2.5/iscroll.js"></script>
+    <script src="lib/leaflet-0.4.5/leaflet.js"></script>
+    <script src="lib/highcharts-2.3.5/highcharts.js"></script>
+<!--
+    <script src="lib/highcharts-2.3.5/highcharts-more.js"></script>
+    <script src="lib/highcharts-2.3.5/modules/exporting.js"></script>
+-->
+    <script src="js/Element.js"></script>
+    <script src="js/Carousel3D.js"></script>
+    <script src="js/cityData.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/app.charts.js"></script>
+    <script>
+    //alert('Start Web Inspector...');
+
+    // adjust initial-scale since target-densitydpi=device-dpi is no longer supported as a standard
+    var initialScale = (1 / window.devicePixelRatio);
+    var meta = document.createElement('meta');
+    meta.setAttribute('name', 'viewport');
+    meta.setAttribute('content', 'initial-scale=' + initialScale + ', user-scalable=no');
+    document.getElementsByTagName('head')[0].appendChild(meta);
+
+    // add load events
+    if (navigator.userAgent.match(/BB10/)) {
+        window.addEventListener('DOMContentLoaded', function(e) {
+            document.addEventListener('webworksready', app.init);
+        }, false);
+    }
+    else {
+        window.addEventListener('DOMContentLoaded', app.init);
+
+        var resizeTimeout;
+        window.onresize = function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                app.adjustCarousels();
+            }, 1000);
+        };
+    }
+    </script>
+</body>
+</html>

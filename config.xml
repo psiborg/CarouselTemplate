@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" xml:lang="en"
+    id="CarouselTemplate" version="1.0.0" rim:header="" rim:backButton="">
+
+    <name>Carousel Template</name>
+
+    <description>
+        This is a template for a carousel-based application.
+    </description>
+
+    <author href="https://twitter.com/jim_ing" email="jing@rim.com"
+        rim:copyright="Copyright 2012-2013">Jim Ing</author>
+
+    <rim:category name="all" />
+
+    <content src="index.html" />
+
+    <icon src="img/icon-86.png" />
+
+    <rim:orientation mode="landscape" />
+
+    <feature id="blackberry.app.orientation">
+        <param name="mode" value="landscape"></param>
+    </feature>
+
+    <rim:permissions>
+        <rim:permit>access_shared</rim:permit>
+        <rim:permit>record_audio</rim:permit>
+        <rim:permit>read_geolocation</rim:permit>
+        <rim:permit>read_device_identifying_information</rim:permit>
+        <rim:permit>use_camera</rim:permit>
+    </rim:permissions>
+
+    <access uri="*" subdomains="true" />
+
+    <access uri="https://api.twitter.com" subdomains="true" />
+    <access uri="http://cbc.ca" subdomains="true" />
+    <access uri="http://cnet.com" subdomains="true" />
+    <access uri="http://slideshare.net" subdomains="true" />
+    <access uri="http://vimeo.com" subdomains="true" />
+    <access uri="http://youtube.com" subdomains="true" />
+
+    <feature id="blackberry.app" />
+    <feature id="blackberry.invoke" />
+    <feature id="blackberry.invoke.BrowserArguments" />
+    <feature id="blackberry.identity" />
+    <feature id="blackberry.media.camera" />
+    <feature id="blackberry.media.microphone" />
+</widget>
