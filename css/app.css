@@ -211,6 +211,38 @@ strong {
     font-size: 125%;
 }
 
+/* Ticker */
+
+.ticker {
+    width: 100%;
+}
+
+.ticker span {
+    margin: 0 10px 0;
+}
+
+.ticker span.up {
+    color: green;
+    padding-left: 2px;
+}
+
+.ticker span.down {
+    color: red;
+    margin: 0;
+    padding-left: 10px;
+}
+
+.ticker span.eq {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.ticker span.quote {
+    margin: 0;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
 /* Other */
 
 .headingContainer {
@@ -341,12 +373,12 @@ strong {
     margin-left: 2%;
     margin-top: 10px;
 }
-
+/*
 .ticker {
     height: 80%;
     float: left;
 }
-
+*/
 #tweetList {
     padding: 5px;
 }

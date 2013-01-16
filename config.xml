@@ -38,6 +38,7 @@
     <access uri="http://cnet.com" subdomains="true" />
     <access uri="http://slideshare.net" subdomains="true" />
     <access uri="http://vimeo.com" subdomains="true" />
+    <access uri="http://yahoo.com" subdomains="true" />
     <access uri="http://youtube.com" subdomains="true" />
 
     <feature id="blackberry.app" />

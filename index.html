@@ -26,21 +26,25 @@
         <div id="carousel0" class="carousel">
             <figure>
                 <div class="headingContainer">
-                    <div class="heading"><h1 id="heading"><a href="#" data-url="https://github.com/emamob" onclick="app.updateIframe(event, 'content', '1', 'main', 'sapcfo.com');">Carousel Template</a></h1></div>
-                </div>
-            </figure>
-            <figure>
-                <div class="headingContainer">
                     <div class="heading">
-                        <img src="samples/screenshots/ticker_n225.png" class="ticker" onclick="app.updateStock(event, 'content', '1', 'main', '^N225');">
-                        <img src="samples/screenshots/ticker_dax.png" class="ticker" onclick="app.updateStock(event, 'content', '1', 'main', '^GDAXI');">
-                        <img src="samples/screenshots/ticker_cac.png" class="ticker" onclick="app.updateStock(event, 'content', '1', 'main', '^FCHI');">
+                        <h1 id="heading">Carousel Template</h1>
                     </div>
                 </div>
             </figure>
             <figure>
                 <div class="headingContainer">
-                    <div class="heading">3</div>
+                    <div class="heading">
+                        <marquee id="marketTicker" class="ticker">
+                        </marquee>
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <div class="headingContainer">
+                    <div class="heading">
+                        <marquee id="stockTicker" class="ticker">
+                        </marquee>
+                    </div>
                 </div>
             </figure>
             <figure>

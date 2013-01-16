@@ -75,6 +75,81 @@ app.getRSS = function (url, targetId, scrollerId) {
     });
 };
 
+/*
+    'symbol',
+    'last_trade',
+    'update_date',
+    'update_time',
+    'change',
+    'prev_close',
+    'day_high',
+    'day_low',
+    'volume'
+ */
+app.getStocks = function (url, targetId, titleText) {
+    console.info('getStocks:', url, targetId, titleText);
+
+    document.getElementById(targetId).innerHTML = '<span>Loading...</span>';
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'text',
+        complete: function (data) {
+            var lines = data.responseText.split("\r\n"),
+                parts = [],
+                symb = '',
+                quotes = {},
+                quotePatt = /['"]/g,
+                html = '';
+
+            //console.log(data.responseText, lines.length, lines);
+
+            html += '<span class="quote">' + titleText + ':</span>';
+            for (var i = 0, ii = lines.length; i < ii; i++) {
+                parts = lines[i].split(',');
+
+                if (parts.length === 9) {
+                    symb = parts[0].replace(quotePatt, '');
+
+                    quotes[symb] = {
+                        'symbol': symb,
+                        'last_trade': parseFloat(parts[1], 10),
+                        'update_date': parts[2].replace(quotePatt, ''),
+                        'update_time': parts[3].replace(quotePatt, ''),
+                        'change': parseFloat(parts[4], 10),
+                        'prev_close': parseFloat(parts[5], 10),
+                        'day_high': parseFloat(parts[6], 10),
+                        'day_low': parseFloat(parts[7], 10),
+                        'volume': parseInt(parts[8], 10)
+                    };
+
+                    console.log(symb, quotes[symb].last_trade);
+
+                    if (quotes[symb].change < 0) {
+                        quotes[symb].css = 'down';
+                    }
+                    else if (quotes[symb].change > 0) {
+                        quotes[symb].css = 'up';
+                    }
+                    else {
+                        quotes[symb].css = 'eq';
+                    }
+
+                    html += '<span class="' + quotes[symb].css + '" onclick="app.updateStock(event, \'content\', \'1\', \'main\', \'' + symb + '\');">';
+                    html += '<span class="quote">' + symb + '</span> <span>' + quotes[symb].last_trade + ' (' + quotes[symb].change + ')</span>';
+                    html += '</span>';
+                }
+            }
+
+            //console.log(quotes);
+            //console.log(html);
+
+            document.getElementById(targetId).innerHTML = html;
+        }
+    });
+};
+
 app.handleHorz = function (ev, elem) {
     console.info('handleHorz:', elem.element.id, ev.direction, ev.distance);
 
@@ -119,6 +194,9 @@ app.init = function () {
 
     app.getRSS('http://news.cnet.com/8300-1001_3-92.xml', 'newsList', 'comm_news');
     app.getRSS('https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=BlackBerry', 'tweetList', 'comm_tweets');
+
+    app.getStocks('http://download.finance.yahoo.com/d/quotes.csv?s=^IXIC,^DJI,^GSPC,^GSPTSE,^FTSE,^GDAXI,^FCHI,^N225,^HSI&f=sl1d1t1c1ohgv&e=.csv', 'marketTicker', 'Markets');
+    app.getStocks('http://download.finance.yahoo.com/d/quotes.csv?s=RIMM,AAPL,GOOG,MSFT,IBM,ORCL&f=sl1d1t1c1ohgv&e=.csv', 'stockTicker', 'Stocks');
 
     // Set up Carousels
 
