@@ -276,7 +276,7 @@
     document.getElementsByTagName('head')[0].appendChild(meta);
 
     // add load events
-    if (navigator.userAgent.match(/BB10/)) {
+    if (navigator.userAgent.match(/WebWorks/)) {
         window.addEventListener('DOMContentLoaded', function(e) {
             document.addEventListener('webworksready', app.init);
         }, false);
